@@ -125,8 +125,8 @@ margin-top:20px;
 </head>
 <body>
 
-<audio id="musica" loop controls>
-<source src="violín.mp3"  type="audio/mpeg">
+<audio id="musica" loop>
+<source src="violin.mp3" type="audio/mpeg">
 </audio>
 
 <!-- PANTALLA 1 -->
@@ -334,7 +334,11 @@ document.getElementById("password").value;
 
 if(pass === "080625"){
 
-musica.play();
+musica.volume = 0.5;
+
+musica.play().catch(error => {
+    console.log("Error de audio:", error);
+});
 
 document
 .getElementById("login")
