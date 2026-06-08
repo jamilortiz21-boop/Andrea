@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Andrea ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#0f0a0a;
+color:white;
+overflow-x:hidden;
+}
+
+.screen{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.hidden{
+display:none;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.1);
+padding:30px;
+border-radius:25px;
+max-width:900px;
+width:100%;
+text-align:center;
+box-shadow:0 0 30px rgba(255,0,80,.25);
+}
+
+h1{
+margin-bottom:20px;
+color:#ff7aa2;
+}
+
+img{
+max-width:100%;
+border-radius:20px;
+}
+
+.portada{
+width:300px;
+margin-bottom:20px;
+}
+
+.mensaje{
+display:flex;
+gap:30px;
+align-items:center;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.mensaje img{
+width:280px;
+}
+
+.texto{
+max-width:500px;
+line-height:1.8;
+text-align:left;
+font-size:18px;
+}
+
+input{
+width:100%;
+padding:15px;
+font-size:20px;
+border-radius:12px;
+border:none;
+margin:20px 0;
+text-align:center;
+}
+
+button{
+background:#ff4f88;
+border:none;
+padding:15px 35px;
+border-radius:15px;
+font-size:20px;
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.botones{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.video{
+width:100%;
+max-width:600px;
+border-radius:20px;
+}
+
+.final{
+font-size:22px;
+line-height:1.8;
+margin-top:20px;
+}
+</style>
+</head>
+<body>
+
+<audio id="musica" loop>
+<source src="music/violin.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PANTALLA 1 -->
+<section id="login" class="screen">
+<div class="card">
+
+<img src="img/portada.jpg" class="portada">
+
+<h1>Bienvenida Andrea 😃🌹</h1>
+
+<p>Este mensaje fue creado para una sola persona.</p>
+
+<input
+id="password"
+type="password"
+placeholder="Ingresa la contraseña">
+
+<button onclick="entrar()">❤️ Entrar</button>
+
+</div>
+</section>
+
+<!-- PANTALLA 2 -->
+<section id="carta" class="screen hidden">
+<div class="card">
+
+<h1>Quiero decirte algo ❤️</h1>
+
+<div class="mensaje">
+
+<img src="img/andrea.jpg">
+
+<div class="texto">
+
+<p>
+Mañana cumpliríamos un año.
+<br><br>
+
+Quién diría que duraríamos tanto soportándonos, jejeje.
+Este es un mensaje serio, sé que no debería hacer bromas,
+así que seré directo.
+<br><br>
+
+No pensé enamorarme tanto ni volver a tener esa ilusión
+de nuevo hasta que llegaste a mi vida.
+<br><br>
+
+Quiero agradecerte por ser una mujer comprensiva,
+cariñosa, divertida y por soportar todos mis berrinches
+y cambios repentinos.
+<br><br>
+
+Sé que nuestra relación no ha sido perfecta.
+Tuvimos altos y bajos, pero si tuviera la oportunidad
+de conocerte de nuevo, no lo dudaría.
+<br><br>
+
+No soy bueno con las palabras,
+pero quiero que sepas que te adoro.
+<br><br>
+
+No sé cómo será de aquí en adelante.
+Lo que menos quiero es lastimarte o lastimarnos.
+<br><br>
+
+Toda la semana pensé en escribirte o no.
+<br><br>
+
+Si necesitas paz y para encontrarla tengo que alejarme,
+lo haré ❤️
+<br><br>
+
+Te amo.
+<br><br>
+
+Estoy haciendo esto y espero que salga bien,
+porque no sé programar 😄
+<br><br>
+
+Quisiera tenerte en mi vida
+no solo un año, sino toda la vida.
+</p>
+
+</div>
+
+</div>
+
+<br>
+
+<button onclick="mostrarPregunta()">
+❤️ Continuar
+</button>
+
+</div>
+</section>
+
+<!-- PREGUNTA -->
+<section id="pregunta" class="screen hidden">
+<div class="card">
+
+<h1>❤️ Una última pregunta ❤️</h1>
+
+<h2>
+¿Quieres que nos demos otra oportunidad?
+</h2>
+
+<div class="botones">
+
+<button onclick="respuestaSi()">
+💚 Sí, quiero
+</button>
+
+<button onclick="respuestaNo()">
+💔 No
+</button>
+
+</div>
+
+</div>
+</section>
+
+<!-- SI -->
+<section id="si" class="screen hidden">
+<div class="card">
+
+<video
+class="video"
+controls
+autoplay>
+
+<source src="videos/video_si.mp4" type="video/mp4">
+
+</video>
+
+<div class="final">
+
+❤️ Gracias por responder ❤️
+
+<br><br>
+
+La vida es más bella a tu lado.
+
+<br><br>
+
+Que este sea un nuevo punto de inicio para hacer bien las cosas,
+aprender de nuestros errores y seguir construyendo momentos juntos.
+
+<br><br>
+
+Te amo. 🌹
+
+</div>
+
+</div>
+</section>
+
+<!-- NO -->
+<section id="no" class="screen hidden">
+<div class="card">
+
+<video
+class="video"
+controls
+autoplay>
+
+<source src="videos/video_no.mp4" type="video/mp4">
+
+</video>
+
+<div class="final">
+
+❤️ Gracias por responder ❤️
+
+<br><br>
+
+Gracias por ser parte de mi vida.
+
+<br><br>
+
+Cuídate mucho.
+
+<br><br>
+
+Siempre te llevaré en mi corazón y recordaré con cariño
+todo lo que vivimos juntos.
+
+<br><br>
+
+Te deseo lo mejor. 🌹
+
+</div>
+
+</div>
+</section>
+
+<script>
+
+const musica =
+document.getElementById("musica");
+
+function entrar(){
+
+const pass =
+document.getElementById("password").value;
+
+if(pass === "080625"){
+
+musica.play();
+
+document
+.getElementById("login")
+.classList.add("hidden");
+
+document
+.getElementById("carta")
+.classList.remove("hidden");
+
+}else{
+
+alert("🌹 Contraseña incorrecta");
+
+}
+
+}
+
+function mostrarPregunta(){
+
+document
+.getElementById("carta")
+.classList.add("hidden");
+
+document
+.getElementById("pregunta")
+.classList.remove("hidden");
+
+}
+
+function detenerMusica(){
+
+let volumen = 1;
+
+const fade = setInterval(() => {
+
+if(volumen > 0){
+
+volumen -= 0.05;
+musica.volume = volumen;
+
+}else{
+
+clearInterval(fade);
+musica.pause();
+
+}
+
+},100);
+
+}
+
+function respuestaSi(){
+
+detenerMusica();
+
+document
+.getElementById("pregunta")
+.classList.add("hidden");
+
+document
+.getElementById("si")
+.classList.remove("hidden");
+
+}
+
+function respuestaNo(){
+
+detenerMusica();
+
+document
+.getElementById("pregunta")
+.classList.add("hidden");
+
+document
+.getElementById("no")
+.classList.remove("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
